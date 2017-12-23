@@ -17,8 +17,8 @@ import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
 public class SolrJTest {
-
-	// 添加(更新)索引
+	
+	// 添加(更新)索引 2017/12/23
 	@Test
 	public void testAddOrUpdate() throws SolrServerException, IOException {
 		// 建立httpSolrServer对象,用于连接solr服务
