@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>公告列表</title>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+		<meta name="Keywords" content="keyword1,keyword2,keyword3"/>
+		<meta name="Description" content="网页信息的描述" />
+		<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<style type="text/css">
+			/** easyui.css: 1363行改行高 */
+			.datagrid-row {
+  				height: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function(){
+				/** 初始化数据表格 */
+				$("#notice_grid").datagrid({
+					border : false, // 不加边框
+					fitColumns: true,
+					fit : true, // 自适应父容器
+					nowrap : false,
+					rownumbers : true, // 显示行号
+					url : "findByPage", // 请求URL返回响应数据 (json格式) {"total" : 10, "rows" : [{"id":1,"title":"","content" : ""},{}]}
+					columns : [[ // 表头(定义列的相关信息)
+					   {field: "id", checkbox : true}, // id列
+					   {field: "n_id", title : "编号", width : 20,formatter : function(value,rowData){
+						   return rowData.id;
+					   }}, // id列
+					   {field: "title", title : "标题", width : 80}, 
+					   {field: "content", title : "内容", width : 200} 
+					]],
+					pagination : true, // 显示分页工具条
+					pageList : [5,10,15], // 改变分页下拉列表中的数据
+					pageSize : 5, // 设置初始化每页显示的记录条数
+					pageNumber : 1 // 设置初始化当前页码(第一页)
+					
+				});
+			});
+		</script>
+	</head>
+	<body class="easyui-layout">
+		
+		<!-- 中间区域 -->
+		<div data-options="region:'center',border:false">
+			<!-- 数据表格 -->
+			<table id="notice_grid">
+				
+			</table>
+		</div>
+	</body>
+</html>
